@@ -47,6 +47,7 @@
 
 - (void)configureView
 {
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1-0.png"]];
     if (self.albumName)
     {
         self.title = self.albumName;
@@ -57,9 +58,9 @@
 
 - (void)initializeCards
 {
-    int randomNumber1 = (arc4random() % (NUMBER_OF_PICTURES_IN_ALBUM -1)) +1;
-    int randomNumber2 = (arc4random() % (NUMBER_OF_PICTURES_IN_ALBUM -1)) +1;
-    int randomNumber3 = (arc4random() % (NUMBER_OF_PICTURES_IN_ALBUM -1)) +1;
+    int randomNumber1 = arc4random() % NUMBER_OF_PICTURES_IN_ALBUM;
+    int randomNumber2 = arc4random() % NUMBER_OF_PICTURES_IN_ALBUM;
+    int randomNumber3 = arc4random() % NUMBER_OF_PICTURES_IN_ALBUM;
     self.cardsArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:randomNumber1], nil];
     if (randomNumber2 != randomNumber1)
     {
@@ -112,12 +113,17 @@
 {
     static NSString *cellIdentifier = @"PNAlbumCellView";
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    
+    UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
     if ([self.cardsArray containsObject:@(indexPath.row)])
     {
+        [imageView setBackgroundColor:[UIColor blackColor]];
         UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"1-%d.png", (int)indexPath.row]];
-        UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
         [imageView setImage:image];
+    }
+    else
+    {
+        [imageView setBackgroundColor:[UIColor lightGrayColor]];
+        [imageView setImage:nil];
     }
     return cell;
 }
@@ -130,6 +136,14 @@
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
     return NUMBER_OF_PICTURES_IN_ALBUM;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([self.cardsArray containsObject:@(indexPath.row)])
+    {
+        [self performSegueWithIdentifier:@"conditionalShowImage" sender:[collectionView cellForItemAtIndexPath:indexPath]];
+    }
 }
 
 #pragma mark - Split view
@@ -152,7 +166,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showImage"]) {
+    if ([[segue identifier] isEqualToString:@"conditionalShowImage"]) {
         NSIndexPath *indexPath = [self.albumCollectionView indexPathForCell:sender];
         PNImageViewController *nextController = (PNImageViewController *)[segue destinationViewController];
         nextController.imageIdentifier = @(indexPath.row);

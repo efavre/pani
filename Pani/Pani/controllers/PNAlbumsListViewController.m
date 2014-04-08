@@ -30,13 +30,14 @@
     [super viewDidLoad];
     self.detailViewController = (PNAlbumContentViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     [self populateAlbums];
-    [self.tableView reloadData];
     [self configureView];
+    [self.tableView reloadData];
 }
 
 - (void)configureView
 {
     self.title = @"Albums";
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1-0.png"]];
 }
 
 #pragma mark - Albums management
