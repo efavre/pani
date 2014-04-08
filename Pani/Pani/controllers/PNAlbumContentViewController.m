@@ -10,7 +10,7 @@
 #import "PNConstants.h"
 #import "PNImageViewController.h"
 
-#define NUMBER_OF_PICTURES_IN_ALBUM 23
+#define NUMBER_OF_PICTURES_IN_ALBUM 24
 
 @interface PNAlbumContentViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -26,7 +26,7 @@
 {
     [super viewDidLoad];
     [self initializeCards];
-//    [self monitorIBeacons];
+    [self monitorIBeacons];
     [self configureView];
 }
 
@@ -85,13 +85,13 @@
 
 - (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion*)region
 {
-//    self.statusLabel.text = @"Quelqu'un vous donne une carte !";
+    self.title = @"Receiving...";
     [self.locationManager startRangingBeaconsInRegion:(CLBeaconRegion *)region];
 }
 
 -(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion*)region
 {
-//    self.statusLabel.text = @"";
+    self.title = self.albumName;
     [self.locationManager stopRangingBeaconsInRegion:(CLBeaconRegion *)region];
 }
 
@@ -99,11 +99,8 @@
 {
     for (CLBeacon *beacon in beacons)
     {
-        
-        NSString *proximity = nil;
-        proximity = (beacon.proximity == CLProximityImmediate ? @"immediate" : (beacon.proximity == CLProximityNear ? @"near" : (beacon.proximity == CLProximityFar ? @"far" : @"unknown")));
-
         [self.cardsArray addObject:beacon.minor];
+        [self.albumCollectionView reloadData];
     }
 }
 
