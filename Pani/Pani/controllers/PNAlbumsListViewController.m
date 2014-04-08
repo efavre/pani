@@ -37,7 +37,6 @@
 - (void)configureView
 {
     self.title = @"Albums";
-    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1-1.png"]];
 }
 
 #pragma mark - Albums management

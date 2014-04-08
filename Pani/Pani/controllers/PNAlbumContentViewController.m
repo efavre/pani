@@ -17,8 +17,6 @@
 @property (strong, nonatomic) CLLocationManager *locationManager;
 @property (strong, nonatomic) NSMutableArray *cardsArray;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
-@property (strong, nonatomic) NSDictionary *beaconData;
-@property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 - (void)configureView;
 @end
 
@@ -86,13 +84,13 @@
 
 - (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion*)region
 {
-    self.statusLabel.text = @"Quelqu'un vous donne une carte !";
+//    self.statusLabel.text = @"Quelqu'un vous donne une carte !";
     [self.locationManager startRangingBeaconsInRegion:(CLBeaconRegion *)region];
 }
 
 -(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion*)region
 {
-    self.statusLabel.text = @"";
+//    self.statusLabel.text = @"";
     [self.locationManager stopRangingBeaconsInRegion:(CLBeaconRegion *)region];
 }
 
@@ -108,50 +106,6 @@
     }
 }
 
-#pragma mark - User interactions
-
-- (IBAction)tapCard:(id)sender
-{
-    UIButton *cardButton = (UIButton *)sender;
-    if ([self.cardsArray containsObject:@(cardButton.tag)])
-    {
-        [self.locationManager stopMonitoringForRegion:self.beaconRegion];
-        [self.peripheralManager stopAdvertising];
-        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:UUID];
-        self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:cardButton.tag identifier:@"Pani-Region"];
-        self.beaconData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
-        self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
-    }
-    else
-    {
-
-    }
-}
-
-- (IBAction)stopGivingCard:(id)sender {
-    [self.peripheralManager stopAdvertising];
-    [self monitorIBeacons];
-}
-
-#pragma mark - CBPeripheralManagerDelegate
-
--(void)peripheralManagerDidUpdateState:(CBPeripheralManager *)peripheral
-{
-    if (peripheral.state == CBPeripheralManagerStatePoweredOn)
-    {
-        [self.peripheralManager startAdvertising:self.beaconData];
-    }
-    else if (peripheral.state == CBPeripheralManagerStatePoweredOff)
-    {
-        [self.peripheralManager stopAdvertising];
-    }
-    else if (peripheral.state == CBPeripheralManagerStateUnsupported)
-    {
-        NSLog(@"not supported");
-    }
-}
-
-
 #pragma mark - UICollectionView Datasource
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -161,7 +115,7 @@
     
     if ([self.cardsArray containsObject:@(indexPath.row)])
     {
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"1-%d.png", indexPath.row]];
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"1-%d.png", (int)indexPath.row]];
         UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
         [imageView setImage:image];
     }

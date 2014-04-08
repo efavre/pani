@@ -126,6 +126,7 @@
 				9E5AA89F18F3F03600234982 /* controllers */,
 				9E5AA8A118F3F05100234982 /* views */,
 				9E5AA8A018F3F04B00234982 /* utils */,
+				9E5AA8A818F44A6F00234982 /* models */,
 				9E5AA86D18F3EB6D00234982 /* PNAppDelegate.h */,
 				9E5AA86E18F3EB6D00234982 /* PNAppDelegate.m */,
 				9E5AA87018F3EB6D00234982 /* Main_iPhone.storyboard */,
@@ -192,6 +193,13 @@
 			children = (
 			);
 			name = views;
+			sourceTree = "<group>";
+		};
+		9E5AA8A818F44A6F00234982 /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
