@@ -8,6 +8,7 @@
 
 #import "PNDetailViewController.h"
 #import "PNConstants.h"
+#define NUMBER_OF_PICTURES_IN_ALBUM 13
 
 @interface PNDetailViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -39,10 +40,10 @@
 
 - (void)configureView
 {
-    // Update the user interface for the detail item.
-
-    if (self.albumName) {
-        self.detailDescriptionLabel.text = [self.albumName description];
+    if (self.albumName)
+    {
+        self.title = self.albumName;
+        [self.backgroundImageView setImage:[UIImage imageNamed:@"1.png"]];
     }
 }
 
@@ -59,9 +60,9 @@
 
 - (void)initializeCards
 {
-    int randomNumber1 = (arc4random() % 11) +1;
-    int randomNumber2 = (arc4random() % 11) +1;
-    int randomNumber3 = (arc4random() % 11) +1;
+    int randomNumber1 = (arc4random() % (NUMBER_OF_PICTURES_IN_ALBUM -1)) +1;
+    int randomNumber2 = (arc4random() % (NUMBER_OF_PICTURES_IN_ALBUM -1)) +1;
+    int randomNumber3 = (arc4random() % (NUMBER_OF_PICTURES_IN_ALBUM -1)) +1;
     self.cards = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:randomNumber1], nil];
     if (randomNumber2 != randomNumber1)
     {
@@ -87,7 +88,9 @@
     for (NSNumber *card in self.cards) {
         int tag = [card intValue];
         UIButton *button = (UIButton *)[self.view viewWithTag:tag];
-        button.backgroundColor = [UIColor greenColor];
+        button.enabled = YES;
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.png", tag]];
+        [button setBackgroundImage:image forState:UIControlStateNormal];
     }
 }
 

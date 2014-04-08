@@ -7,7 +7,6 @@
 //
 
 #import "PNMasterViewController.h"
-
 #import "PNDetailViewController.h"
 
 @interface PNMasterViewController () {
@@ -30,6 +29,7 @@
 {
     [super viewDidLoad];
     self.detailViewController = (PNDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
+    self.title = @"Albums";
     [self populateAlbums];
     [self.tableView reloadData];
 }

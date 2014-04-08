@@ -15,6 +15,7 @@
 @property (strong, nonatomic) NSString *albumName;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 - (IBAction)giveCard:(id)sender;
 - (IBAction)stopGivingCard:(id)sender;
