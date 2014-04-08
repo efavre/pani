@@ -79,7 +79,7 @@
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:UUID];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid identifier:@"Livecode-Region"];
+    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 identifier:@"Pani-Region"];
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
 }
 
@@ -89,7 +89,7 @@
         int tag = [card intValue];
         UIButton *button = (UIButton *)[self.view viewWithTag:tag];
         button.enabled = YES;
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%d.png", tag]];
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"1-%d.png", tag]];
         [button setBackgroundImage:image forState:UIControlStateNormal];
     }
 }
@@ -124,15 +124,23 @@
 
 #pragma mark - User interactions
 
-- (IBAction)giveCard:(id)sender
+- (IBAction)tapCard:(id)sender
 {
-    [self.locationManager stopMonitoringForRegion:self.beaconRegion];
-    [self.peripheralManager stopAdvertising];
     UIButton *cardButton = (UIButton *)sender;
-    NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:UUID];
-    self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:cardButton.tag identifier:@"MaRegion"];
-    self.beaconData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
-    self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    if ([self.cards containsObject:@(cardButton.tag)])
+    {
+        [self.locationManager stopMonitoringForRegion:self.beaconRegion];
+        [self.peripheralManager stopAdvertising];
+        NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:UUID];
+        self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:cardButton.tag identifier:@"Pani-Region"];
+        self.beaconData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
+        self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
+    }
+    else
+    {
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Go get it!" message:@"You don't own this picture yet. Find someone willing to share it with you." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (IBAction)stopGivingCard:(id)sender {
@@ -164,7 +172,7 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
+    barButtonItem.title = NSLocalizedString(@"Albums", @"Albums");
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }

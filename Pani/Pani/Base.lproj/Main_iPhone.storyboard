@@ -78,7 +78,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jff-45-yIR">
+                            <button opaque="NO" tag="1" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jff-45-yIR">
                                 <rect key="frame" x="10" y="79" width="95" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,11 +86,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="GJ8-Z2-ipR"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="sqt-qM-oVE"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="B0q-hR-j74"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="2" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpA-p5-sxM">
+                            <button opaque="NO" tag="2" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lpA-p5-sxM">
                                 <rect key="frame" x="113" y="79" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -98,11 +98,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="Zdv-pR-bfd"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="x2s-gW-yRa"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="5Qh-Lq-4Nc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrW-yd-xjd">
+                            <button opaque="NO" tag="3" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QrW-yd-xjd">
                                 <rect key="frame" x="215" y="79" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -110,11 +110,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="gjs-jn-HN0"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="9rd-0C-zVO"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="M3r-k8-nad"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="4" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm4-Nc-jiR">
+                            <button opaque="NO" tag="4" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mm4-Nc-jiR">
                                 <rect key="frame" x="10" y="160" width="95" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -122,11 +122,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="6Uw-Xw-e48"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="sHH-If-Iid"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="16A-n3-pOS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="5" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="422-od-vim">
+                            <button opaque="NO" tag="5" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="422-od-vim">
                                 <rect key="frame" x="113" y="160" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -134,11 +134,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="WYQ-De-YEN"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="cg1-L8-fO0"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="HIP-KZ-2Vi"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="6" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOA-NR-idQ">
+                            <button opaque="NO" tag="6" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JOA-NR-idQ">
                                 <rect key="frame" x="215" y="160" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -146,11 +146,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="egY-io-h8Q"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="r9O-bw-zq8"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="22R-Zf-oJl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="7" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tu-XA-3Uv">
+                            <button opaque="NO" tag="7" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tu-XA-3Uv">
                                 <rect key="frame" x="10" y="241" width="95" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,11 +158,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="a8D-rM-ote"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="I4V-gc-gRs"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="IhQ-m6-w9j"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="8" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3q-hk-pLm">
+                            <button opaque="NO" tag="8" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N3q-hk-pLm">
                                 <rect key="frame" x="113" y="241" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -170,11 +170,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="if6-vn-pWN"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="Bgv-7h-8uq"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="TAP-QK-Hes"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="9" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKb-zU-EXj">
+                            <button opaque="NO" tag="9" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKb-zU-EXj">
                                 <rect key="frame" x="215" y="241" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -182,11 +182,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="ERt-9B-pXg"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="VWE-XR-GTp"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="Uou-5d-KAb"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="10" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yU0-Ft-Ij0">
+                            <button opaque="NO" tag="10" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yU0-Ft-Ij0">
                                 <rect key="frame" x="10" y="322" width="95" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -194,11 +194,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="36x-4g-8QU"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="nso-ME-hKu"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="sKl-36-Err"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="11" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvH-pD-Of2">
+                            <button opaque="NO" tag="11" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HvH-pD-Of2">
                                 <rect key="frame" x="113" y="322" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -206,11 +206,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="rYH-Ni-udu"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="bA9-MX-K68"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="2lf-gN-XPl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="12" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRj-wD-U8K">
+                            <button opaque="NO" tag="12" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NRj-wD-U8K">
                                 <rect key="frame" x="215" y="322" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -218,11 +218,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="kdP-WC-Mrg"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="AUH-PL-igR"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="V50-2x-Sgg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="13" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yh-Ck-Lp2">
+                            <button opaque="NO" tag="13" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8yh-Ck-Lp2">
                                 <rect key="frame" x="10" y="403" width="95" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -230,11 +230,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="xK8-R7-MKT"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="r7B-Uf-szT"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="q7L-bd-aAq"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="14" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayG-LT-kM2">
+                            <button opaque="NO" tag="14" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayG-LT-kM2">
                                 <rect key="frame" x="113" y="403" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -242,11 +242,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="px8-hD-rIh"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="qia-5a-7rp"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="3ha-rk-zef"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="15" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-Ct-vNV">
+                            <button opaque="NO" tag="15" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyD-Ct-vNV">
                                 <rect key="frame" x="215" y="403" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -254,11 +254,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="4rj-Fe-Z8M"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="YA0-Jf-TZp"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="1ir-YQ-1uw"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="16" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIe-S6-37u">
+                            <button opaque="NO" tag="16" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CIe-S6-37u">
                                 <rect key="frame" x="10" y="484" width="95" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -266,11 +266,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="UId-qo-y77"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="DV0-NX-HBE"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="T8h-L2-IDI"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="17" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQn-Oe-tAh">
+                            <button opaque="NO" tag="17" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQn-Oe-tAh">
                                 <rect key="frame" x="113" y="484" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -278,11 +278,11 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="JZi-l0-qHw"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="6iz-9Y-u0w"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="0Sc-hm-Cum"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" tag="18" contentMode="scaleAspectFit" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMq-0x-lyo">
+                            <button opaque="NO" tag="18" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMq-0x-lyo">
                                 <rect key="frame" x="215" y="484" width="94" height="73"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -290,8 +290,8 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="giveCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="Jsc-pv-2aF"/>
                                     <action selector="stopGivingCard:" destination="Ah7-4n-0Wa" eventType="touchUpInside" id="EgP-T4-qBw"/>
+                                    <action selector="tapCard:" destination="Ah7-4n-0Wa" eventType="touchDown" id="ggr-fd-aXa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -304,7 +304,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lrm-kH-fPn" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="923" y="64"/>
+            <point key="canvasLocation" x="963" y="64"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="jxO-dI-yJb">
+            <objects>
+                <viewController id="hUQ-nX-zT3" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AHp-T4-qBr"/>
+                        <viewControllerLayoutGuide type="bottom" id="PA1-5I-u8n"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dau-xh-2BF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Wc-aU-fqd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kuN-Zi-IN3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="64"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
