@@ -10,12 +10,13 @@
 @import CoreLocation;
 @import CoreBluetooth;
 
-@interface PNDetailViewController : UIViewController <UISplitViewControllerDelegate, CLLocationManagerDelegate, CBPeripheralManagerDelegate>
+@interface PNAlbumContentViewController : UIViewController <UISplitViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate, CBPeripheralManagerDelegate>
 
 @property (strong, nonatomic) NSString *albumName;
 @property (weak, nonatomic) IBOutlet UILabel *detailDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UICollectionView *albumCollectionView;
 
 - (IBAction)tapCard:(id)sender;
 - (IBAction)stopGivingCard:(id)sender;

@@ -6,36 +6,45 @@
 //  Copyright (c) 2014 Eric Favre. All rights reserved.
 //
 
-#import "PNDetailViewController.h"
+#import "PNAlbumContentViewController.h"
 #import "PNConstants.h"
-#define NUMBER_OF_PICTURES_IN_ALBUM 13
+#import "PNImageViewController.h"
 
-@interface PNDetailViewController ()
+#define NUMBER_OF_PICTURES_IN_ALBUM 23
+
+@interface PNAlbumContentViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) NSMutableArray *cards;
+@property (strong, nonatomic) NSMutableArray *cardsArray;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 @property (strong, nonatomic) NSDictionary *beaconData;
 @property (strong, nonatomic) CBPeripheralManager *peripheralManager;
 - (void)configureView;
 @end
 
-@implementation PNDetailViewController
+@implementation PNAlbumContentViewController
 
-#pragma mark - Managing the detail item
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    [self initializeCards];
+//    [self monitorIBeacons];
+    [self configureView];
+}
+
+#pragma mark - manage view
 
 - (void)setAlbumName:(id)newDetailItem
 {
-    if (_albumName != newDetailItem) {
+    if (_albumName != newDetailItem)
+    {
         _albumName = newDetailItem;
-        
-        // Update the view.
         [self configureView];
     }
-
-    if (self.masterPopoverController != nil) {
+    if (self.masterPopoverController != nil)
+    {
         [self.masterPopoverController dismissPopoverAnimated:YES];
-    }        
+    }
 }
 
 - (void)configureView
@@ -43,17 +52,7 @@
     if (self.albumName)
     {
         self.title = self.albumName;
-        [self.backgroundImageView setImage:[UIImage imageNamed:@"1.png"]];
     }
-}
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self initializeCards];
-    [self populateCardsView];
-    [self monitorIBeacons];
-    [self configureView];
 }
 
 #pragma mark - Cards management
@@ -63,14 +62,14 @@
     int randomNumber1 = (arc4random() % (NUMBER_OF_PICTURES_IN_ALBUM -1)) +1;
     int randomNumber2 = (arc4random() % (NUMBER_OF_PICTURES_IN_ALBUM -1)) +1;
     int randomNumber3 = (arc4random() % (NUMBER_OF_PICTURES_IN_ALBUM -1)) +1;
-    self.cards = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:randomNumber1], nil];
+    self.cardsArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:randomNumber1], nil];
     if (randomNumber2 != randomNumber1)
     {
-        [self.cards addObject:[NSNumber numberWithInt:randomNumber2]];
+        [self.cardsArray addObject:[NSNumber numberWithInt:randomNumber2]];
     }
     if (randomNumber3 != randomNumber1 && randomNumber3 != randomNumber2)
     {
-        [self.cards addObject:[NSNumber numberWithInt:randomNumber3]];
+        [self.cardsArray addObject:[NSNumber numberWithInt:randomNumber3]];
     }
 }
 
@@ -83,19 +82,7 @@
     [self.locationManager startMonitoringForRegion:self.beaconRegion];
 }
 
-- (void)populateCardsView
-{
-    for (NSNumber *card in self.cards) {
-        int tag = [card intValue];
-        UIButton *button = (UIButton *)[self.view viewWithTag:tag];
-        button.enabled = YES;
-        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"1-%d.png", tag]];
-        [button setBackgroundImage:image forState:UIControlStateNormal];
-    }
-}
-
 #pragma mark - CLLocationManagerDelegate methods
-
 
 - (void)locationManager:(CLLocationManager*)manager didEnterRegion:(CLRegion*)region
 {
@@ -117,8 +104,7 @@
         NSString *proximity = nil;
         proximity = (beacon.proximity == CLProximityImmediate ? @"immediate" : (beacon.proximity == CLProximityNear ? @"near" : (beacon.proximity == CLProximityFar ? @"far" : @"unknown")));
 
-        [self.cards addObject:beacon.minor];
-        [self populateCardsView];
+        [self.cardsArray addObject:beacon.minor];
     }
 }
 
@@ -127,7 +113,7 @@
 - (IBAction)tapCard:(id)sender
 {
     UIButton *cardButton = (UIButton *)sender;
-    if ([self.cards containsObject:@(cardButton.tag)])
+    if ([self.cardsArray containsObject:@(cardButton.tag)])
     {
         [self.locationManager stopMonitoringForRegion:self.beaconRegion];
         [self.peripheralManager stopAdvertising];
@@ -138,8 +124,7 @@
     }
     else
     {
-        UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"Go get it!" message:@"You don't own this picture yet. Find someone willing to share it with you." delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alert show];
+
     }
 }
 
@@ -167,6 +152,31 @@
 }
 
 
+#pragma mark - UICollectionView Datasource
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellIdentifier = @"PNAlbumCellView";
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    
+    if ([self.cardsArray containsObject:@(indexPath.row)])
+    {
+        UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"1-%d.png", indexPath.row]];
+        UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
+        [imageView setImage:image];
+    }
+    return cell;
+}
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
+{
+    return 1;
+}
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return NUMBER_OF_PICTURES_IN_ALBUM;
+}
 
 #pragma mark - Split view
 
@@ -179,9 +189,19 @@
 
 - (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
-    // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];
     self.masterPopoverController = nil;
 }
 
+
+#pragma mark - Navigation
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"showImage"]) {
+        NSIndexPath *indexPath = [self.albumCollectionView indexPathForCell:sender];
+        PNImageViewController *nextController = (PNImageViewController *)[segue destinationViewController];
+        nextController.imageIdentifier = @(indexPath.row);
+    }
+}
 @end

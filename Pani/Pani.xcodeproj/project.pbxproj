@@ -21,9 +21,10 @@
 		9E5AA88618F3EB6D00234982 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5AA86218F3EB6D00234982 /* UIKit.framework */; };
 		9E5AA88E18F3EB6D00234982 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9E5AA88C18F3EB6D00234982 /* InfoPlist.strings */; };
 		9E5AA89018F3EB6D00234982 /* PaniTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA88F18F3EB6D00234982 /* PaniTests.m */; };
-		9E5AA89D18F3F03100234982 /* PNDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA89A18F3F03100234982 /* PNDetailViewController.m */; };
-		9E5AA89E18F3F03100234982 /* PNMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA89C18F3F03100234982 /* PNMasterViewController.m */; };
+		9E5AA89D18F3F03100234982 /* PNAlbumContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA89A18F3F03100234982 /* PNAlbumContentViewController.m */; };
+		9E5AA89E18F3F03100234982 /* PNAlbumsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA89C18F3F03100234982 /* PNAlbumsListViewController.m */; };
 		9E5AA8A418F3F28C00234982 /* PNConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8A318F3F28C00234982 /* PNConstants.m */; };
+		9E5AA8A718F4328700234982 /* PNImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8A618F4328700234982 /* PNImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,12 +56,14 @@
 		9E5AA88B18F3EB6D00234982 /* PaniTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PaniTests-Info.plist"; sourceTree = "<group>"; };
 		9E5AA88D18F3EB6D00234982 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9E5AA88F18F3EB6D00234982 /* PaniTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaniTests.m; sourceTree = "<group>"; };
-		9E5AA89918F3F03100234982 /* PNDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNDetailViewController.h; path = controllers/PNDetailViewController.h; sourceTree = "<group>"; };
-		9E5AA89A18F3F03100234982 /* PNDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNDetailViewController.m; path = controllers/PNDetailViewController.m; sourceTree = "<group>"; };
-		9E5AA89B18F3F03100234982 /* PNMasterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNMasterViewController.h; path = controllers/PNMasterViewController.h; sourceTree = "<group>"; };
-		9E5AA89C18F3F03100234982 /* PNMasterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNMasterViewController.m; path = controllers/PNMasterViewController.m; sourceTree = "<group>"; };
+		9E5AA89918F3F03100234982 /* PNAlbumContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbumContentViewController.h; path = controllers/PNAlbumContentViewController.h; sourceTree = "<group>"; };
+		9E5AA89A18F3F03100234982 /* PNAlbumContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbumContentViewController.m; path = controllers/PNAlbumContentViewController.m; sourceTree = "<group>"; };
+		9E5AA89B18F3F03100234982 /* PNAlbumsListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbumsListViewController.h; path = controllers/PNAlbumsListViewController.h; sourceTree = "<group>"; };
+		9E5AA89C18F3F03100234982 /* PNAlbumsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbumsListViewController.m; path = controllers/PNAlbumsListViewController.m; sourceTree = "<group>"; };
 		9E5AA8A218F3F28C00234982 /* PNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNConstants.h; path = utils/PNConstants.h; sourceTree = "<group>"; };
 		9E5AA8A318F3F28C00234982 /* PNConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNConstants.m; path = utils/PNConstants.m; sourceTree = "<group>"; };
+		9E5AA8A518F4328700234982 /* PNImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNImageViewController.h; path = controllers/PNImageViewController.h; sourceTree = "<group>"; };
+		9E5AA8A618F4328700234982 /* PNImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNImageViewController.m; path = controllers/PNImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,10 +168,12 @@
 		9E5AA89F18F3F03600234982 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9E5AA89B18F3F03100234982 /* PNMasterViewController.h */,
-				9E5AA89C18F3F03100234982 /* PNMasterViewController.m */,
-				9E5AA89918F3F03100234982 /* PNDetailViewController.h */,
-				9E5AA89A18F3F03100234982 /* PNDetailViewController.m */,
+				9E5AA89B18F3F03100234982 /* PNAlbumsListViewController.h */,
+				9E5AA89C18F3F03100234982 /* PNAlbumsListViewController.m */,
+				9E5AA89918F3F03100234982 /* PNAlbumContentViewController.h */,
+				9E5AA89A18F3F03100234982 /* PNAlbumContentViewController.m */,
+				9E5AA8A518F4328700234982 /* PNImageViewController.h */,
+				9E5AA8A618F4328700234982 /* PNImageViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -289,9 +294,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E5AA8A418F3F28C00234982 /* PNConstants.m in Sources */,
-				9E5AA89E18F3F03100234982 /* PNMasterViewController.m in Sources */,
+				9E5AA89E18F3F03100234982 /* PNAlbumsListViewController.m in Sources */,
+				9E5AA8A718F4328700234982 /* PNImageViewController.m in Sources */,
 				9E5AA86F18F3EB6D00234982 /* PNAppDelegate.m in Sources */,
-				9E5AA89D18F3F03100234982 /* PNDetailViewController.m in Sources */,
+				9E5AA89D18F3F03100234982 /* PNAlbumContentViewController.m in Sources */,
 				9E5AA86B18F3EB6D00234982 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

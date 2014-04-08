@@ -6,15 +6,15 @@
 //  Copyright (c) 2014 Eric Favre. All rights reserved.
 //
 
-#import "PNMasterViewController.h"
-#import "PNDetailViewController.h"
+#import "PNAlbumsListViewController.h"
+#import "PNAlbumContentViewController.h"
 
-@interface PNMasterViewController () {
+@interface PNAlbumsListViewController () {
     NSMutableArray *_objects;
 }
 @end
 
-@implementation PNMasterViewController
+@implementation PNAlbumsListViewController
 
 - (void)awakeFromNib
 {
@@ -28,12 +28,17 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.detailViewController = (PNDetailViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-    self.title = @"Albums";
+    self.detailViewController = (PNAlbumContentViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
     [self populateAlbums];
     [self.tableView reloadData];
+    [self configureView];
 }
 
+- (void)configureView
+{
+    self.title = @"Albums";
+    self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1-1.png"]];
+}
 
 #pragma mark - Albums management
 
@@ -81,9 +86,11 @@
     }
 }
 
+#pragma mark - Navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if ([[segue identifier] isEqualToString:@"showDetail"]) {
+    if ([[segue identifier] isEqualToString:@"showAlbum"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         NSString *albumName = _objects[indexPath.row];
         [[segue destinationViewController] setAlbumName:albumName];
