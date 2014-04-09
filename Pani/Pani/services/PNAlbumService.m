@@ -13,7 +13,7 @@
 
 +(NSArray *) getAlbums
 {
-    PNAlbum *album = [PNAlbum albumWithIdentifier:[NSNumber numberWithInt:1] andTitle:@"Indonesia"];
+    PNAlbum *album = [PNAlbum albumWithIdentifier:[NSNumber numberWithInt:1] title:@"Indonesia" andCardsCount:[NSNumber numberWithInt:24]];
     NSArray *albums = [NSArray arrayWithObjects:album,nil];
     return albums;
 }

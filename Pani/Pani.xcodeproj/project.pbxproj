@@ -26,7 +26,10 @@
 		9E5AA8A418F3F28C00234982 /* PNConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8A318F3F28C00234982 /* PNConstants.m */; };
 		9E5AA8A718F4328700234982 /* PNCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8A618F4328700234982 /* PNCardViewController.m */; };
 		9E5AA8AC18F5320D00234982 /* PNAlbumService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8AB18F5320D00234982 /* PNAlbumService.m */; };
-		9E5AA8AF18F5393400234982 /* PNAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8AE18F5393400234982 /* PNAlbum.m */; };
+		9E5AA8B418F54B4800234982 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E5AA8B318F54B4800234982 /* CoreData.framework */; };
+		9E5AA8B718F54B6200234982 /* Pani.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8B518F54B6200234982 /* Pani.xcdatamodeld */; };
+		9E5AA8BA18F570C800234982 /* PNCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8B918F570C800234982 /* PNCard.m */; };
+		9E5AA8BD18F570C900234982 /* PNAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8BC18F570C900234982 /* PNAlbum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +71,12 @@
 		9E5AA8A618F4328700234982 /* PNCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNCardViewController.m; path = controllers/PNCardViewController.m; sourceTree = "<group>"; };
 		9E5AA8AA18F5320D00234982 /* PNAlbumService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbumService.h; path = services/PNAlbumService.h; sourceTree = "<group>"; };
 		9E5AA8AB18F5320D00234982 /* PNAlbumService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbumService.m; path = services/PNAlbumService.m; sourceTree = "<group>"; };
-		9E5AA8AD18F5393400234982 /* PNAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbum.h; path = models/PNAlbum.h; sourceTree = "<group>"; };
-		9E5AA8AE18F5393400234982 /* PNAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbum.m; path = models/PNAlbum.m; sourceTree = "<group>"; };
+		9E5AA8B318F54B4800234982 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		9E5AA8B618F54B6200234982 /* Pani.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pani.xcdatamodel; sourceTree = "<group>"; };
+		9E5AA8B818F570C800234982 /* PNCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNCard.h; path = models/PNCard.h; sourceTree = "<group>"; };
+		9E5AA8B918F570C800234982 /* PNCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNCard.m; path = models/PNCard.m; sourceTree = "<group>"; };
+		9E5AA8BB18F570C900234982 /* PNAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbum.h; path = models/PNAlbum.h; sourceTree = "<group>"; };
+		9E5AA8BC18F570C900234982 /* PNAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbum.m; path = models/PNAlbum.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E5AA8B418F54B4800234982 /* CoreData.framework in Frameworks */,
 				9E5AA86118F3EB6D00234982 /* CoreGraphics.framework in Frameworks */,
 				9E5AA86318F3EB6D00234982 /* UIKit.framework in Frameworks */,
 				9E5AA85F18F3EB6D00234982 /* Foundation.framework in Frameworks */,
@@ -118,6 +126,7 @@
 		9E5AA85D18F3EB6C00234982 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9E5AA8B318F54B4800234982 /* CoreData.framework */,
 				9E5AA85E18F3EB6D00234982 /* Foundation.framework */,
 				9E5AA86018F3EB6D00234982 /* CoreGraphics.framework */,
 				9E5AA86218F3EB6D00234982 /* UIKit.framework */,
@@ -197,8 +206,11 @@
 		9E5AA8A818F44A6F00234982 /* models */ = {
 			isa = PBXGroup;
 			children = (
-				9E5AA8AD18F5393400234982 /* PNAlbum.h */,
-				9E5AA8AE18F5393400234982 /* PNAlbum.m */,
+				9E5AA8B518F54B6200234982 /* Pani.xcdatamodeld */,
+				9E5AA8BB18F570C900234982 /* PNAlbum.h */,
+				9E5AA8BC18F570C900234982 /* PNAlbum.m */,
+				9E5AA8B818F570C800234982 /* PNCard.h */,
+				9E5AA8B918F570C800234982 /* PNCard.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -312,11 +324,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E5AA8A418F3F28C00234982 /* PNConstants.m in Sources */,
+				9E5AA8BA18F570C800234982 /* PNCard.m in Sources */,
 				9E5AA89E18F3F03100234982 /* PNAlbumsListViewController.m in Sources */,
+				9E5AA8BD18F570C900234982 /* PNAlbum.m in Sources */,
 				9E5AA8A718F4328700234982 /* PNCardViewController.m in Sources */,
-				9E5AA8AF18F5393400234982 /* PNAlbum.m in Sources */,
 				9E5AA86F18F3EB6D00234982 /* PNAppDelegate.m in Sources */,
 				9E5AA89D18F3F03100234982 /* PNAlbumContentViewController.m in Sources */,
+				9E5AA8B718F54B6200234982 /* Pani.xcdatamodeld in Sources */,
 				9E5AA86B18F3EB6D00234982 /* main.m in Sources */,
 				9E5AA8AC18F5320D00234982 /* PNAlbumService.m in Sources */,
 			);
@@ -547,6 +561,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		9E5AA8B518F54B6200234982 /* Pani.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				9E5AA8B618F54B6200234982 /* Pani.xcdatamodel */,
+			);
+			currentVersion = 9E5AA8B618F54B6200234982 /* Pani.xcdatamodel */;
+			name = Pani.xcdatamodeld;
+			path = models/Pani.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 9E5AA85318F3EB6C00234982 /* Project object */;
 }

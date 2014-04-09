@@ -8,13 +8,19 @@
 
 #import "PNAlbum.h"
 
+
 @implementation PNAlbum
 
-+(PNAlbum *) albumWithIdentifier:(NSNumber *)identifier andTitle:(NSString *)title
+@dynamic title;
+@dynamic identifier;
+@dynamic cardsCount;
+
++(PNAlbum *) albumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount
 {
     PNAlbum *album = [[PNAlbum alloc] init];
     album.identifier = identifier;
     album.title = title;
+    album.cardsCount = cardsCount;
     return album;
 }
 

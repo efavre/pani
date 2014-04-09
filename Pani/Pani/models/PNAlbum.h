@@ -7,12 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface PNAlbum : NSObject
 
-@property(strong, nonatomic) NSNumber *identifier;
-@property(strong, nonatomic) NSString *title;
+@interface PNAlbum : NSManagedObject
 
-+(PNAlbum *) albumWithIdentifier:(NSNumber *)identifier andTitle:(NSString *)title;
+@property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSNumber * identifier;
+@property (nonatomic, retain) NSNumber * cardsCount;
+
++(PNAlbum *) albumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount;
 
 @end

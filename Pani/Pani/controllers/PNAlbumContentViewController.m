@@ -10,8 +10,6 @@
 #import "PNConstants.h"
 #import "PNCardViewController.h"
 
-#define NUMBER_OF_PICTURES_IN_ALBUM 24
-
 @interface PNAlbumContentViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) CLLocationManager *locationManager;
@@ -58,9 +56,9 @@
 
 - (void)initializeCards
 {
-    int randomNumber1 = arc4random() % NUMBER_OF_PICTURES_IN_ALBUM;
-    int randomNumber2 = arc4random() % NUMBER_OF_PICTURES_IN_ALBUM;
-    int randomNumber3 = arc4random() % NUMBER_OF_PICTURES_IN_ALBUM;
+    int randomNumber1 = arc4random() % [self.album.cardsCount intValue];
+    int randomNumber2 = arc4random() % [self.album.cardsCount intValue];
+    int randomNumber3 = arc4random() % [self.album.cardsCount intValue];
     self.cardsArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:randomNumber1], nil];
     if (randomNumber2 != randomNumber1)
     {
@@ -132,7 +130,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return NUMBER_OF_PICTURES_IN_ALBUM;
+    return [self.album.cardsCount intValue];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
