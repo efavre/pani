@@ -32,11 +32,11 @@
 
 #pragma mark - manage view
 
-- (void)setAlbumName:(id)newDetailItem
+- (void)setAlbum:(PNAlbum *)newAlbum
 {
-    if (_albumName != newDetailItem)
+    if (_album != newAlbum)
     {
-        _albumName = newDetailItem;
+        _album = newAlbum;
         [self configureView];
     }
     if (self.masterPopoverController != nil)
@@ -48,9 +48,9 @@
 - (void)configureView
 {
     self.backgroundImageView.image = [UIImage imageNamed:@"1-0.png"];
-    if (self.albumName)
+    if (self.album)
     {
-        self.title = self.albumName;
+        self.title = self.album.title;
     }
 }
 
@@ -91,7 +91,7 @@
 
 -(void)locationManager:(CLLocationManager*)manager didExitRegion:(CLRegion*)region
 {
-    self.title = self.albumName;
+    self.title = self.album.title;
     [self.locationManager stopRangingBeaconsInRegion:(CLBeaconRegion *)region];
 }
 

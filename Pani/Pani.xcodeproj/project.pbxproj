@@ -26,6 +26,7 @@
 		9E5AA8A418F3F28C00234982 /* PNConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8A318F3F28C00234982 /* PNConstants.m */; };
 		9E5AA8A718F4328700234982 /* PNImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8A618F4328700234982 /* PNImageViewController.m */; };
 		9E5AA8AC18F5320D00234982 /* PNAlbumService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8AB18F5320D00234982 /* PNAlbumService.m */; };
+		9E5AA8AF18F5393400234982 /* PNAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8AE18F5393400234982 /* PNAlbum.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +68,8 @@
 		9E5AA8A618F4328700234982 /* PNImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNImageViewController.m; path = controllers/PNImageViewController.m; sourceTree = "<group>"; };
 		9E5AA8AA18F5320D00234982 /* PNAlbumService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbumService.h; path = services/PNAlbumService.h; sourceTree = "<group>"; };
 		9E5AA8AB18F5320D00234982 /* PNAlbumService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbumService.m; path = services/PNAlbumService.m; sourceTree = "<group>"; };
+		9E5AA8AD18F5393400234982 /* PNAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbum.h; path = models/PNAlbum.h; sourceTree = "<group>"; };
+		9E5AA8AE18F5393400234982 /* PNAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbum.m; path = models/PNAlbum.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +197,8 @@
 		9E5AA8A818F44A6F00234982 /* models */ = {
 			isa = PBXGroup;
 			children = (
+				9E5AA8AD18F5393400234982 /* PNAlbum.h */,
+				9E5AA8AE18F5393400234982 /* PNAlbum.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -309,6 +314,7 @@
 				9E5AA8A418F3F28C00234982 /* PNConstants.m in Sources */,
 				9E5AA89E18F3F03100234982 /* PNAlbumsListViewController.m in Sources */,
 				9E5AA8A718F4328700234982 /* PNImageViewController.m in Sources */,
+				9E5AA8AF18F5393400234982 /* PNAlbum.m in Sources */,
 				9E5AA86F18F3EB6D00234982 /* PNAppDelegate.m in Sources */,
 				9E5AA89D18F3F03100234982 /* PNAlbumContentViewController.m in Sources */,
 				9E5AA86B18F3EB6D00234982 /* main.m in Sources */,
@@ -529,6 +535,7 @@
 				9E5AA89518F3EB6D00234982 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9E5AA89618F3EB6D00234982 /* Build configuration list for PBXNativeTarget "PaniTests" */ = {
 			isa = XCConfigurationList;
@@ -537,6 +544,7 @@
 				9E5AA89818F3EB6D00234982 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

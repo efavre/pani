@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "PNAlbum.h"
+
 @import CoreLocation;
 
 @interface PNAlbumContentViewController : UIViewController <UISplitViewControllerDelegate, UICollectionViewDataSource, UICollectionViewDelegate, CLLocationManagerDelegate>
 
-@property (strong, nonatomic) NSString *albumName;
+@property (strong, nonatomic) PNAlbum *album;
 @property (weak, nonatomic) IBOutlet UICollectionView *albumCollectionView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 

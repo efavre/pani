@@ -7,12 +7,14 @@
 //
 
 #import "PNAlbumService.h"
+#import "PNAlbum.h"
 
 @implementation PNAlbumService
 
 +(NSArray *) getAlbums
 {
-    NSArray *albums = [NSArray arrayWithObjects:@"Indonesia",nil];
+    PNAlbum *album = [PNAlbum albumWithIdentifier:[NSNumber numberWithInt:1] andTitle:@"Indonesia"];
+    NSArray *albums = [NSArray arrayWithObjects:album,nil];
     return albums;
 }
 

@@ -9,6 +9,7 @@
 #import "PNAlbumsListViewController.h"
 #import "PNAlbumContentViewController.h"
 #import "PNAlbumService.h"
+#import "PNAlbum.h"
 
 @interface PNAlbumsListViewController ()
 {
@@ -38,6 +39,7 @@
 
 - (void)configureView
 {
+    self.navigationController.view.backgroundColor = [UIColor whiteColor];
     self.title = @"Albums";
 }
 
@@ -63,9 +65,8 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
-    NSDate *object = _objects[indexPath.row];
-    cell.textLabel.text = [object description];
+    PNAlbum *album = _objects[indexPath.row];
+    cell.textLabel.text = album.title;
     return cell;
 }
 
@@ -74,22 +75,14 @@
     return NO;
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        NSString *albumName = [_objects objectAtIndex:[indexPath row]];
-        self.detailViewController.albumName = albumName;
-    }
-}
-
 #pragma mark - Navigation
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"showAlbum"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSString *albumName = _objects[indexPath.row];
-        [[segue destinationViewController] setAlbumName:albumName];
+        PNAlbum *album = [_objects objectAtIndex:[indexPath row]];
+        [[segue destinationViewController] setAlbum:album];
     }
 }
 
