@@ -8,14 +8,26 @@
 
 #import "PNAlbumService.h"
 #import "PNAlbum.h"
+#import "PNCoreDataManager.h"
 
 @implementation PNAlbumService
 
-+(NSArray *) getAlbums
++ (void)initializeDatabase
 {
-    PNAlbum *album = [PNAlbum albumWithIdentifier:[NSNumber numberWithInt:1] title:@"Indonesia" andCardsCount:[NSNumber numberWithInt:24]];
-    NSArray *albums = [NSArray arrayWithObjects:album,nil];
-    return albums;
+	NSDictionary *albumAttributes = [NSDictionary dictionaryWithObjectsAndKeys:@"Indonesia", @"title", @1, @"identifier", @24, @"cardsCount", nil];
+
+	[[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNAlbum" attributesDictionary:albumAttributes];
+	[[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
+	 }];
+}
+
++ (NSArray *)getAlbums
+{
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"title" ascending:NO];
+	NSArray *sortDescriptorArray = [NSArray arrayWithObject:sortDescriptor];
+
+	[[PNCoreDataManager sharedManager] fetchEntitiesWithClassName:@"PNAlbum" sortDescriptors:sortDescriptorArray sectionNameKeyPath:nil predicate:nil];
+	return [NSArray array];
 }
 
 @end

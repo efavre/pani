@@ -10,6 +10,7 @@
 
 @interface PNAlbumService : NSObject
 
-+(NSArray *) getAlbums;
++ (void)initializeDatabase;
++ (NSArray *)getAlbums;
 
 @end

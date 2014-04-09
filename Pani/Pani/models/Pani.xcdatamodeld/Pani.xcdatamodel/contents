@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="PNAlbum" representedClassName="PNAlbum" syncable="YES">
+        <attribute name="cardsCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
@@ -9,7 +10,7 @@
         <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNAlbum" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PNAlbum" positionX="-63" positionY="-18" width="128" height="75"/>
+        <element name="PNAlbum" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="PNCard" positionX="-54" positionY="9" width="128" height="75"/>
     </elements>
 </model>

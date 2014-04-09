@@ -7,17 +7,33 @@
 //
 
 #import "PNAppDelegate.h"
+#import "PNCoreDataManager.h"
+#import "PNAlbumService.h"
 
 @implementation PNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
-        UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
-        splitViewController.delegate = (id)navigationController.topViewController;
-    }
-    return YES;
+	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad)
+	{
+		UISplitViewController *splitViewController = (UISplitViewController *)self.window.rootViewController;
+		UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
+		splitViewController.delegate = (id)navigationController.topViewController;
+	}
+	[PNAlbumService initializeDatabase];
+	return YES;
+}
+
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+	[[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
+	 }];
+}
+
+- (void)applicationWillTerminate:(UIApplication *)application
+{
+	[[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
+	 }];
 }
 
 @end
