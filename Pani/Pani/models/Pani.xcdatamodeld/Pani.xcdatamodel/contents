@@ -4,13 +4,14 @@
         <attribute name="cardsCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="cards" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PNCard" inverseName="album" inverseEntity="PNCard" syncable="YES"/>
     </entity>
     <entity name="PNCard" representedClassName="PNCard" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNAlbum" syncable="YES"/>
+        <relationship name="album" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PNAlbum" inverseName="cards" inverseEntity="PNAlbum" syncable="YES"/>
     </entity>
     <elements>
-        <element name="PNAlbum" positionX="-63" positionY="-18" width="128" height="90"/>
-        <element name="PNCard" positionX="-54" positionY="9" width="128" height="75"/>
+        <element name="PNAlbum" positionX="-63" positionY="-18" width="128" height="103"/>
+        <element name="PNCard" positionX="-54" positionY="9" width="128" height="73"/>
     </elements>
 </model>

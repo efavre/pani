@@ -12,10 +12,11 @@
 
 @interface PNAlbum : NSManagedObject
 
-@property (nonatomic, retain) NSString * title;
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSNumber * cardsCount;
+@property (nonatomic, retain) NSString *title;
+@property (nonatomic, retain) NSNumber *identifier;
+@property (nonatomic, retain) NSNumber *cardsCount;
+@property (nonatomic, strong) NSSet *cards;
 
-+(PNAlbum *) albumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount;
++ (PNAlbum *)albumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount;
 
 @end

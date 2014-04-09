@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
+#import "PNAlbum.h"
 
 @interface PNCard : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * identifier;
-@property (nonatomic, retain) NSManagedObject *album;
+@property (nonatomic, retain) NSNumber *identifier;
+@property (nonatomic, retain) PNAlbum *album;
 
 @end
