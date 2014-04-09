@@ -10,9 +10,9 @@
 @import CoreLocation;
 @import CoreBluetooth;
 
-@interface PNImageViewController : UIViewController <CBPeripheralManagerDelegate>
+@interface PNCardViewController : UIViewController <CBPeripheralManagerDelegate>
 
-@property (strong, nonatomic) NSNumber *imageIdentifier;
+@property (strong, nonatomic) NSNumber *cardIdentifier;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 

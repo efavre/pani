@@ -24,7 +24,7 @@
 		9E5AA89D18F3F03100234982 /* PNAlbumContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA89A18F3F03100234982 /* PNAlbumContentViewController.m */; };
 		9E5AA89E18F3F03100234982 /* PNAlbumsListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA89C18F3F03100234982 /* PNAlbumsListViewController.m */; };
 		9E5AA8A418F3F28C00234982 /* PNConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8A318F3F28C00234982 /* PNConstants.m */; };
-		9E5AA8A718F4328700234982 /* PNImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8A618F4328700234982 /* PNImageViewController.m */; };
+		9E5AA8A718F4328700234982 /* PNCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8A618F4328700234982 /* PNCardViewController.m */; };
 		9E5AA8AC18F5320D00234982 /* PNAlbumService.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8AB18F5320D00234982 /* PNAlbumService.m */; };
 		9E5AA8AF18F5393400234982 /* PNAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8AE18F5393400234982 /* PNAlbum.m */; };
 /* End PBXBuildFile section */
@@ -64,8 +64,8 @@
 		9E5AA89C18F3F03100234982 /* PNAlbumsListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbumsListViewController.m; path = controllers/PNAlbumsListViewController.m; sourceTree = "<group>"; };
 		9E5AA8A218F3F28C00234982 /* PNConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNConstants.h; path = utils/PNConstants.h; sourceTree = "<group>"; };
 		9E5AA8A318F3F28C00234982 /* PNConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNConstants.m; path = utils/PNConstants.m; sourceTree = "<group>"; };
-		9E5AA8A518F4328700234982 /* PNImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNImageViewController.h; path = controllers/PNImageViewController.h; sourceTree = "<group>"; };
-		9E5AA8A618F4328700234982 /* PNImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNImageViewController.m; path = controllers/PNImageViewController.m; sourceTree = "<group>"; };
+		9E5AA8A518F4328700234982 /* PNCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNCardViewController.h; path = controllers/PNCardViewController.h; sourceTree = "<group>"; };
+		9E5AA8A618F4328700234982 /* PNCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNCardViewController.m; path = controllers/PNCardViewController.m; sourceTree = "<group>"; };
 		9E5AA8AA18F5320D00234982 /* PNAlbumService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbumService.h; path = services/PNAlbumService.h; sourceTree = "<group>"; };
 		9E5AA8AB18F5320D00234982 /* PNAlbumService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbumService.m; path = services/PNAlbumService.m; sourceTree = "<group>"; };
 		9E5AA8AD18F5393400234982 /* PNAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbum.h; path = models/PNAlbum.h; sourceTree = "<group>"; };
@@ -179,8 +179,8 @@
 				9E5AA89C18F3F03100234982 /* PNAlbumsListViewController.m */,
 				9E5AA89918F3F03100234982 /* PNAlbumContentViewController.h */,
 				9E5AA89A18F3F03100234982 /* PNAlbumContentViewController.m */,
-				9E5AA8A518F4328700234982 /* PNImageViewController.h */,
-				9E5AA8A618F4328700234982 /* PNImageViewController.m */,
+				9E5AA8A518F4328700234982 /* PNCardViewController.h */,
+				9E5AA8A618F4328700234982 /* PNCardViewController.m */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -313,7 +313,7 @@
 			files = (
 				9E5AA8A418F3F28C00234982 /* PNConstants.m in Sources */,
 				9E5AA89E18F3F03100234982 /* PNAlbumsListViewController.m in Sources */,
-				9E5AA8A718F4328700234982 /* PNImageViewController.m in Sources */,
+				9E5AA8A718F4328700234982 /* PNCardViewController.m in Sources */,
 				9E5AA8AF18F5393400234982 /* PNAlbum.m in Sources */,
 				9E5AA86F18F3EB6D00234982 /* PNAppDelegate.m in Sources */,
 				9E5AA89D18F3F03100234982 /* PNAlbumContentViewController.m in Sources */,

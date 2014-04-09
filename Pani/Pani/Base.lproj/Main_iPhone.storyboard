@@ -136,10 +136,10 @@
             </objects>
             <point key="canvasLocation" x="1024" y="64"/>
         </scene>
-        <!--Image View Controller-->
+        <!--Card View Controller-->
         <scene sceneID="jxO-dI-yJb">
             <objects>
-                <viewController id="hUQ-nX-zT3" customClass="PNImageViewController" sceneMemberID="viewController">
+                <viewController id="hUQ-nX-zT3" customClass="PNCardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AHp-T4-qBr"/>
                         <viewControllerLayoutGuide type="bottom" id="PA1-5I-u8n"/>

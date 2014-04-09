@@ -8,7 +8,7 @@
 
 #import "PNAlbumContentViewController.h"
 #import "PNConstants.h"
-#import "PNImageViewController.h"
+#import "PNCardViewController.h"
 
 #define NUMBER_OF_PICTURES_IN_ALBUM 24
 
@@ -165,8 +165,8 @@
 {
     if ([[segue identifier] isEqualToString:@"conditionalShowImage"]) {
         NSIndexPath *indexPath = [self.albumCollectionView indexPathForCell:sender];
-        PNImageViewController *nextController = (PNImageViewController *)[segue destinationViewController];
-        nextController.imageIdentifier = @(indexPath.row);
+        PNCardViewController *nextController = (PNCardViewController *)[segue destinationViewController];
+        nextController.cardIdentifier = @(indexPath.row);
     }
 }
 @end
