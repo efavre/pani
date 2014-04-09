@@ -30,6 +30,7 @@
 		9E5AA8B718F54B6200234982 /* Pani.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8B518F54B6200234982 /* Pani.xcdatamodeld */; };
 		9E5AA8BA18F570C800234982 /* PNCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8B918F570C800234982 /* PNCard.m */; };
 		9E5AA8BD18F570C900234982 /* PNAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8BC18F570C900234982 /* PNAlbum.m */; };
+		9E5AA90118F5933200234982 /* PNCoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA90018F5933200234982 /* PNCoreDataHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		9E5AA8B918F570C800234982 /* PNCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNCard.m; path = models/PNCard.m; sourceTree = "<group>"; };
 		9E5AA8BB18F570C900234982 /* PNAlbum.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNAlbum.h; path = models/PNAlbum.h; sourceTree = "<group>"; };
 		9E5AA8BC18F570C900234982 /* PNAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbum.m; path = models/PNAlbum.m; sourceTree = "<group>"; };
+		9E5AA8FF18F5933200234982 /* PNCoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNCoreDataHelper.h; path = utils/PNCoreDataHelper.h; sourceTree = "<group>"; };
+		9E5AA90018F5933200234982 /* PNCoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNCoreDataHelper.m; path = utils/PNCoreDataHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +202,8 @@
 			children = (
 				9E5AA8A218F3F28C00234982 /* PNConstants.h */,
 				9E5AA8A318F3F28C00234982 /* PNConstants.m */,
+				9E5AA8FF18F5933200234982 /* PNCoreDataHelper.h */,
+				9E5AA90018F5933200234982 /* PNCoreDataHelper.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -332,6 +337,7 @@
 				9E5AA89D18F3F03100234982 /* PNAlbumContentViewController.m in Sources */,
 				9E5AA8B718F54B6200234982 /* Pani.xcdatamodeld in Sources */,
 				9E5AA86B18F3EB6D00234982 /* main.m in Sources */,
+				9E5AA90118F5933200234982 /* PNCoreDataHelper.m in Sources */,
 				9E5AA8AC18F5320D00234982 /* PNAlbumService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
