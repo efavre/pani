@@ -8,9 +8,11 @@
 
 #import "PNAlbumsListViewController.h"
 #import "PNAlbumContentViewController.h"
+#import "PNAlbumService.h"
 
-@interface PNAlbumsListViewController () {
-    NSMutableArray *_objects;
+@interface PNAlbumsListViewController ()
+{
+    NSArray *_objects;
 }
 @end
 
@@ -37,19 +39,13 @@
 - (void)configureView
 {
     self.title = @"Albums";
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1-0.png"]];
 }
 
 #pragma mark - Albums management
 
 - (void)populateAlbums
 {
-    if (!_objects) {
-        _objects = [[NSMutableArray alloc] init];
-    }
-    [_objects insertObject:@"Indonesia" atIndex:0];
-    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-    [self.tableView insertRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    _objects = [PNAlbumService getAlbums];
 }
 
 #pragma mark - Table View

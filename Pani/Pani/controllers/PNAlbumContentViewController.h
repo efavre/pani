@@ -13,5 +13,6 @@
 
 @property (strong, nonatomic) NSString *albumName;
 @property (weak, nonatomic) IBOutlet UICollectionView *albumCollectionView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end

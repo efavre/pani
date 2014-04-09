@@ -47,7 +47,7 @@
 
 - (void)configureView
 {
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1-0.png"]];
+    self.backgroundImageView.image = [UIImage imageNamed:@"1-0.png"];
     if (self.albumName)
     {
         self.title = self.albumName;
