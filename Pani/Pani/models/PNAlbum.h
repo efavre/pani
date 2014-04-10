@@ -20,5 +20,6 @@
 + (PNAlbum *)albumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount;
 - (BOOL)hasCard:(NSNumber *)cardIdentifier;
 - (PNCard *)addRandomCard;
+- (PNCard *)addCardWithIdentifier:(NSNumber *)identifier;
 
 @end

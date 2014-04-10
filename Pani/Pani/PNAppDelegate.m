@@ -26,16 +26,11 @@
 	return YES;
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application
+-(void)applicationDidEnterBackground:(UIApplication *)application
 {
-	[[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
-	 }];
-}
-
-- (void)applicationWillTerminate:(UIApplication *)application
-{
-	[[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
-	 }];
+    [[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
+        NSLog(@"Saved");
+    }];
 }
 
 - (void)initializeDatabase

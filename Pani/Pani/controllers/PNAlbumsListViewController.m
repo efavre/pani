@@ -13,7 +13,7 @@
 
 @interface PNAlbumsListViewController ()
 {
-	NSArray *_objects;
+	NSArray *_albums;
 }
 @end
 
@@ -48,7 +48,7 @@
 
 - (void)populateAlbums
 {
-	_objects = [PNAlbumService getAlbums];
+	_albums = [PNAlbumService getAlbums];
 }
 
 #pragma mark - Table View
@@ -60,13 +60,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return _objects.count;
+	return _albums.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-	PNAlbum *album = _objects[indexPath.row];
+	PNAlbum *album = _albums[indexPath.row];
 
 	cell.textLabel.text = album.title;
 	return cell;
@@ -84,7 +84,7 @@
 	if ([[segue identifier] isEqualToString:@"showAlbum"])
 	{
 		NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-		PNAlbum *album = [_objects objectAtIndex:[indexPath row]];
+		PNAlbum *album = [_albums objectAtIndex:[indexPath row]];
 		[[segue destinationViewController] setAlbum:album];
 	}
 }

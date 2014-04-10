@@ -31,7 +31,7 @@
 {
 	for (PNCard *card in self.cards)
 	{
-		if (card.identifier == cardIdentifier)
+		if ([card.identifier intValue] == [cardIdentifier intValue])
 		{
 			return YES;
 		}
@@ -41,8 +41,27 @@
 
 - (PNCard *)addRandomCard
 {
-	int randomNumber = arc4random() % [self.cardsCount intValue];
-	NSDictionary *cardDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@(randomNumber), @"identifier", self, @"album", nil];
+	NSNumber *randomIndentifier = [NSNumber numberWithInt:(arc4random() % [self.cardsCount intValue])];
+	for (PNCard *card in self.cards)
+    {
+        if ([card.identifier intValue] == [randomIndentifier intValue]) {
+            return card;
+        }
+    }
+    NSDictionary *cardDictionary = [NSDictionary dictionaryWithObjectsAndKeys:randomIndentifier, @"identifier", self, @"album", nil];
+	PNCard *card = [[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNCard" attributesDictionary:cardDictionary];
+	return card;
+}
+
+- (PNCard *)addCardWithIdentifier:(NSNumber *)identifier
+{
+	for (PNCard *card in self.cards)
+    {
+        if ([card.identifier intValue] == [identifier intValue]) {
+            return card;
+        }
+    }
+    NSDictionary *cardDictionary = [NSDictionary dictionaryWithObjectsAndKeys:identifier, @"identifier", self, @"album", nil];
 	PNCard *card = [[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNCard" attributesDictionary:cardDictionary];
 	return card;
 }

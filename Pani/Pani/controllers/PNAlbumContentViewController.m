@@ -23,7 +23,6 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-	[self initializeCards];
 	[self monitorIBeacons];
 	[self configureView];
 }
@@ -52,24 +51,7 @@
 	}
 }
 
-#pragma mark - Cards management
-
-- (void)initializeCards
-{
-//	int randomNumber1 = arc4random() % [self.album.cardsCount intValue];
-//	int randomNumber2 = arc4random() % [self.album.cardsCount intValue];
-//	int randomNumber3 = arc4random() % [self.album.cardsCount intValue];
-//
-//	self.cardsArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:randomNumber1], nil];
-//	if (randomNumber2 != randomNumber1)
-//	{
-//		[self.cardsArray addObject:[NSNumber numberWithInt:randomNumber2]];
-//	}
-//	if (randomNumber3 != randomNumber1 && randomNumber3 != randomNumber2)
-//	{
-//		[self.cardsArray addObject:[NSNumber numberWithInt:randomNumber3]];
-//	}
-}
+#pragma mark - iBeacon management
 
 - (void)monitorIBeacons
 {
@@ -98,7 +80,7 @@
 {
 	for (CLBeacon *beacon in beacons)
 	{
-//		[self.cardsArray addObject:beacon.minor];
+        [self.album addCardWithIdentifier:beacon.minor];
 		[self.albumCollectionView reloadData];
 	}
 }
