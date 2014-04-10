@@ -21,5 +21,7 @@
 - (id)createEntityWithClassName:(NSString *)className attributesDictionary:(NSDictionary *)attributesDictionary;
 - (void)deleteEntity:(NSManagedObject *)entity;
 - (BOOL)uniqueAttributeForClassName:(NSString *)className attributeName:(NSString *)attributeName attributeValue:(id)attributeValue;
++ (void)initializeDatabase;
++ (void)upgradeDatabaseFromVersion:(NSString *)applicationVersion;
 
 @end

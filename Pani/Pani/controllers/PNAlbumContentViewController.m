@@ -148,7 +148,8 @@
 	{
 		NSIndexPath *indexPath = [self.albumCollectionView indexPathForCell:sender];
 		PNCardViewController *nextController = (PNCardViewController *)[segue destinationViewController];
-		nextController.cardIdentifier = @(indexPath.row);
+        PNCard *card = [self.album getCardWithIdentifier:@(indexPath.row)];
+		nextController.card = card;
 	}
 }
 

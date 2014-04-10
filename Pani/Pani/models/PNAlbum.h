@@ -21,5 +21,9 @@
 - (BOOL)hasCard:(NSNumber *)cardIdentifier;
 - (PNCard *)addRandomCard;
 - (PNCard *)addCardWithIdentifier:(NSNumber *)identifier;
+- (PNCard *)getCardWithIdentifier:(NSNumber *)identifier;
+
++ (NSArray *)getAlbums;
++ (void)deleteAllAlbums;
 
 @end

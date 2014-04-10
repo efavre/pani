@@ -13,7 +13,7 @@
 
 @interface PNCardViewController : UIViewController <CBPeripheralManagerDelegate>
 
-@property (strong, nonatomic) NSNumber *cardIdentifier;
+@property (strong, nonatomic) PNCard *card;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 

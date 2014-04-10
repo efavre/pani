@@ -26,9 +26,9 @@
 
 - (void)displayCard
 {
-	UIImage *card = [UIImage imageNamed:[NSString stringWithFormat:@"1-%d.png", [self.cardIdentifier intValue]]];
+	UIImage *cardImage = [UIImage imageNamed:[NSString stringWithFormat:@"%@-%@.png", self.card.album.identifier, self.card.identifier]];
 
-	self.imageView.image = card;
+	self.imageView.image = cardImage;
 }
 
 #pragma mark - User interactions
@@ -37,7 +37,7 @@
 {
 	NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:UUID];
 
-	self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 minor:[self.cardIdentifier intValue] identifier:@"Pani-Region"];
+	self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:[self.card.album.identifier intValue] minor:[self.card.identifier intValue] identifier:@"Card-Region"];
 	self.beaconData = [self.beaconRegion peripheralDataWithMeasuredPower:nil];
 	self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
 }

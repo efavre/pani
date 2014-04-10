@@ -8,7 +8,6 @@
 
 #import "PNAppDelegate.h"
 #import "PNCoreDataManager.h"
-#import "PNAlbumService.h"
 #import "PNConstants.h"
 
 @implementation PNAppDelegate
@@ -42,20 +41,24 @@
 
 - (void)initializeDatabase
 {
+#if (TARGET_IPHONE_SIMULATOR)
+    [PNCoreDataManager initializeDatabase];
+#else
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *applicationVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     if ([defaults objectForKey:DATABASE_INITIALIZED_VERSION_KEY] == nil)
     {
-        [PNAlbumService initializeDatabase];
+        [PNCoreDataManager initializeDatabase];
         [defaults setObject:applicationVersion forKey:DATABASE_INITIALIZED_VERSION_KEY];
         [defaults synchronize];
     }
     else if (![[defaults objectForKey:DATABASE_INITIALIZED_VERSION_KEY] isEqualToString:applicationVersion] )
 	{
-        [PNAlbumService upgradeDatabaseFromVersion:applicationVersion];
+        [PNCoreDataManager upgradeDatabaseFromVersion:applicationVersion];
         [defaults setObject:applicationVersion forKey:DATABASE_INITIALIZED_VERSION_KEY];
         [defaults synchronize];
 	}
+#endif
 }
 
 @end

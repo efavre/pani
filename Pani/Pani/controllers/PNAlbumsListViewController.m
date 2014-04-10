@@ -8,7 +8,6 @@
 
 #import "PNAlbumsListViewController.h"
 #import "PNAlbumContentViewController.h"
-#import "PNAlbumService.h"
 #import "PNAlbum.h"
 
 @interface PNAlbumsListViewController ()
@@ -48,7 +47,7 @@
 
 - (void)populateAlbums
 {
-	_albums = [PNAlbumService getAlbums];
+	_albums = [PNAlbum getAlbums];
 }
 
 #pragma mark - Table View
