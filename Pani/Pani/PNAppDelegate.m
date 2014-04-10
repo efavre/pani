@@ -29,7 +29,14 @@
 -(void)applicationDidEnterBackground:(UIApplication *)application
 {
     [[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
-        NSLog(@"Saved");
+        if (saved)
+        {
+            NSLog(@"Saved");
+        }
+        else
+        {
+            NSLog(@"ERROR : %@", [error localizedDescription]);
+        }
     }];
 }
 

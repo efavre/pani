@@ -44,7 +44,7 @@
 
 - (void)configureView
 {
-	self.backgroundImageView.image = [UIImage imageNamed:@"1-0.png"];
+	self.backgroundImageView.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-0.png", self.album.identifier]];
 	if (self.album)
 	{
 		self.title = self.album.title;
@@ -96,7 +96,7 @@
 	if ([self.album hasCard:@(indexPath.row)])
 	{
 		[imageView setBackgroundColor:[UIColor blackColor]];
-		UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"1-%d.png", (int)indexPath.row]];
+		UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"%@-%d.png", self.album.identifier, (int)indexPath.row]];
 		[imageView setImage:image];
 	}
 	else

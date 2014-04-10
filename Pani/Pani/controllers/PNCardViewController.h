@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @import CoreLocation;
 @import CoreBluetooth;
+#import "PNCard.h"
 
 @interface PNCardViewController : UIViewController <CBPeripheralManagerDelegate>
 

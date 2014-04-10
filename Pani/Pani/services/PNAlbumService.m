@@ -16,12 +16,20 @@
 + (void)initializeDatabase
 {
 	[self deleteAllAlbums];
-	NSDictionary *albumAttributes = [NSDictionary dictionaryWithObjectsAndKeys:@"Indonesia", @"title", @1, @"identifier", @24, @"cardsCount", nil];
+	NSDictionary *album1Attributes = [NSDictionary dictionaryWithObjectsAndKeys:@"Indonesia", @"title", @1, @"identifier", @24, @"cardsCount", nil];
 
-	PNAlbum *album = (PNAlbum *)[[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNAlbum" attributesDictionary:albumAttributes];
-	[album addRandomCard];
-	[album addRandomCard];
-	[album addRandomCard];
+	PNAlbum *album1 = (PNAlbum *)[[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNAlbum" attributesDictionary:album1Attributes];
+	[album1 addRandomCard];
+	[album1 addRandomCard];
+	[album1 addRandomCard];
+
+    NSDictionary *album2Attributes = [NSDictionary dictionaryWithObjectsAndKeys:@"Peru", @"title", @2, @"identifier", @19, @"cardsCount", nil];
+    
+	PNAlbum *album2 = (PNAlbum *)[[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNAlbum" attributesDictionary:album2Attributes];
+	[album2 addRandomCard];
+	[album2 addRandomCard];
+	[album2 addRandomCard];
+
 	[[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
 		 NSLog(@"Saved");
 	 }];
