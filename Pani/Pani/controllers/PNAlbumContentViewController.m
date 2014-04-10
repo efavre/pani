@@ -13,7 +13,7 @@
 @interface PNAlbumContentViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) CLLocationManager *locationManager;
-@property (strong, nonatomic) NSMutableArray *cardsArray;
+@property (strong, nonatomic) NSSet *cardsSet;
 @property (strong, nonatomic) CLBeaconRegion *beaconRegion;
 - (void)configureView;
 @end
@@ -56,19 +56,19 @@
 
 - (void)initializeCards
 {
-	int randomNumber1 = arc4random() % [self.album.cardsCount intValue];
-	int randomNumber2 = arc4random() % [self.album.cardsCount intValue];
-	int randomNumber3 = arc4random() % [self.album.cardsCount intValue];
-
-	self.cardsArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:randomNumber1], nil];
-	if (randomNumber2 != randomNumber1)
-	{
-		[self.cardsArray addObject:[NSNumber numberWithInt:randomNumber2]];
-	}
-	if (randomNumber3 != randomNumber1 && randomNumber3 != randomNumber2)
-	{
-		[self.cardsArray addObject:[NSNumber numberWithInt:randomNumber3]];
-	}
+//	int randomNumber1 = arc4random() % [self.album.cardsCount intValue];
+//	int randomNumber2 = arc4random() % [self.album.cardsCount intValue];
+//	int randomNumber3 = arc4random() % [self.album.cardsCount intValue];
+//
+//	self.cardsArray = [NSMutableArray arrayWithObjects:[NSNumber numberWithInt:randomNumber1], nil];
+//	if (randomNumber2 != randomNumber1)
+//	{
+//		[self.cardsArray addObject:[NSNumber numberWithInt:randomNumber2]];
+//	}
+//	if (randomNumber3 != randomNumber1 && randomNumber3 != randomNumber2)
+//	{
+//		[self.cardsArray addObject:[NSNumber numberWithInt:randomNumber3]];
+//	}
 }
 
 - (void)monitorIBeacons
@@ -98,7 +98,7 @@
 {
 	for (CLBeacon *beacon in beacons)
 	{
-		[self.cardsArray addObject:beacon.minor];
+//		[self.cardsArray addObject:beacon.minor];
 		[self.albumCollectionView reloadData];
 	}
 }
@@ -111,7 +111,7 @@
 	UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
 	UIImageView *imageView = (UIImageView *)[cell viewWithTag:100];
 
-	if ([self.cardsArray containsObject:@(indexPath.row)])
+	if ([self.album hasCard:@(indexPath.row)])
 	{
 		[imageView setBackgroundColor:[UIColor blackColor]];
 		UIImage *image = [UIImage imageNamed:[NSString stringWithFormat:@"1-%d.png", (int)indexPath.row]];
@@ -137,7 +137,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-	if ([self.cardsArray containsObject:@(indexPath.row)])
+	if ([self.album hasCard:@(indexPath.row)])
 	{
 		[self performSegueWithIdentifier:@"conditionalShowImage" sender:[collectionView cellForItemAtIndexPath:indexPath]];
 	}

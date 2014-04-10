@@ -12,5 +12,6 @@
 
 + (void)initializeDatabase;
 + (NSArray *)getAlbums;
++ (void)upgradeDatabaseFromVersion:(NSString *)applicationVersion;
 
 @end

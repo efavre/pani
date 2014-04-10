@@ -10,6 +10,7 @@
 
 @interface PNConstants : NSObject
 
-extern NSString *const UUID ;
+extern NSString *const UUID;
+extern NSString *const DATABASE_INITIALIZED_VERSION_KEY;
 
 @end

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
-
+@class PNCard;
 
 @interface PNAlbum : NSManagedObject
 
@@ -18,5 +18,7 @@
 @property (nonatomic, strong) NSSet *cards;
 
 + (PNAlbum *)albumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount;
+- (BOOL)hasCard:(NSNumber *)cardIdentifier;
+- (PNCard *)addRandomCard;
 
 @end

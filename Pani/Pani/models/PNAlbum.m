@@ -7,7 +7,8 @@
 //
 
 #import "PNAlbum.h"
-
+#import "PNCoreDataManager.h"
+#import "PNCard.h"
 
 @implementation PNAlbum
 
@@ -24,6 +25,26 @@
 	album.title = title;
 	album.cardsCount = cardsCount;
 	return album;
+}
+
+- (BOOL)hasCard:(NSNumber *)cardIdentifier
+{
+	for (PNCard *card in self.cards)
+	{
+		if (card.identifier == cardIdentifier)
+		{
+			return YES;
+		}
+	}
+	return NO;
+}
+
+- (PNCard *)addRandomCard
+{
+	int randomNumber = arc4random() % [self.cardsCount intValue];
+	NSDictionary *cardDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@(randomNumber), @"identifier", self, @"album", nil];
+	PNCard *card = [[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNCard" attributesDictionary:cardDictionary];
+	return card;
 }
 
 @end

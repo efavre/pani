@@ -9,6 +9,7 @@
 #import "PNAppDelegate.h"
 #import "PNCoreDataManager.h"
 #import "PNAlbumService.h"
+#import "PNConstants.h"
 
 @implementation PNAppDelegate
 
@@ -20,7 +21,8 @@
 		UINavigationController *navigationController = [splitViewController.viewControllers lastObject];
 		splitViewController.delegate = (id)navigationController.topViewController;
 	}
-	[PNAlbumService initializeDatabase];
+
+	[self initializeDatabase];
 	return YES;
 }
 
@@ -34,6 +36,24 @@
 {
 	[[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
 	 }];
+}
+
+- (void)initializeDatabase
+{
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *applicationVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
+    if ([defaults objectForKey:DATABASE_INITIALIZED_VERSION_KEY] == nil)
+    {
+        [PNAlbumService initializeDatabase];
+        [defaults setObject:applicationVersion forKey:DATABASE_INITIALIZED_VERSION_KEY];
+        [defaults synchronize];
+    }
+    else if (![[defaults objectForKey:DATABASE_INITIALIZED_VERSION_KEY] isEqualToString:applicationVersion] )
+	{
+        [PNAlbumService upgradeDatabaseFromVersion:applicationVersion];
+        [defaults setObject:applicationVersion forKey:DATABASE_INITIALIZED_VERSION_KEY];
+        [defaults synchronize];
+	}
 }
 
 @end

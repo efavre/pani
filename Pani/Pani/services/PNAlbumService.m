@@ -19,16 +19,16 @@
 	NSDictionary *albumAttributes = [NSDictionary dictionaryWithObjectsAndKeys:@"Indonesia", @"title", @1, @"identifier", @24, @"cardsCount", nil];
 
 	PNAlbum *album = (PNAlbum *)[[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNAlbum" attributesDictionary:albumAttributes];
-	int randomNumber1 = arc4random() % [album.cardsCount intValue];
-//	int randomNumber2 = arc4random() % [album.cardsCount intValue];
-//	int randomNumber3 = arc4random() % [album.cardsCount intValue];
-
-	NSDictionary *cardDictionary = [NSDictionary dictionaryWithObjectsAndKeys:@(randomNumber1), @"identifier", album, @"album", nil];
-	PNCard *card1 = [[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNCard" attributesDictionary:cardDictionary];
-	album.cards = [NSSet setWithObjects:card1, nil];
+	[album addRandomCard];
+	[album addRandomCard];
+	[album addRandomCard];
 	[[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
 		 NSLog(@"Saved");
 	 }];
+}
+
++ (void)upgradeDatabaseFromVersion:(NSString *)applicationVersion
+{
 }
 
 + (NSArray *)getAlbums
