@@ -48,13 +48,13 @@
     NSString *applicationVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     if ([defaults objectForKey:DATABASE_INITIALIZED_VERSION_KEY] == nil)
     {
-        [PNCoreDataManager initializeDatabase];
+        [[PNCoreDataManager sharedManager] initializeDatabase];
         [defaults setObject:applicationVersion forKey:DATABASE_INITIALIZED_VERSION_KEY];
         [defaults synchronize];
     }
     else if (![[defaults objectForKey:DATABASE_INITIALIZED_VERSION_KEY] isEqualToString:applicationVersion] )
 	{
-        [PNCoreDataManager upgradeDatabaseFromVersion:applicationVersion];
+        [[PNCoreDataManager sharedManager] upgradeDatabaseFromVersion:applicationVersion];
         [defaults setObject:applicationVersion forKey:DATABASE_INITIALIZED_VERSION_KEY];
         [defaults synchronize];
 	}
