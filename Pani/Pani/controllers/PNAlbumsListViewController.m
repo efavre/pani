@@ -43,6 +43,7 @@
 
 - (void)configureView
 {
+//	self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1-0.png"]];
 	self.navigationController.view.backgroundColor = [UIColor whiteColor];
 	self.title = @"Albums";
 }
