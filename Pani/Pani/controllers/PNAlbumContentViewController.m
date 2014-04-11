@@ -58,7 +58,7 @@
 	self.locationManager = [[CLLocationManager alloc] init];
 	self.locationManager.delegate = self;
 	NSUUID *uuid = [[NSUUID alloc] initWithUUIDString:UUID];
-	self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:1 identifier:@"Pani-Region"];
+	self.beaconRegion = [[CLBeaconRegion alloc] initWithProximityUUID:uuid major:[self.album.identifier intValue] identifier:@"Pani-Region"];
 	[self.locationManager startMonitoringForRegion:self.beaconRegion];
 }
 
