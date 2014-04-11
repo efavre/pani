@@ -18,12 +18,13 @@
 @property (nonatomic, strong) NSSet *cards;
 
 + (PNAlbum *)albumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount;
++ (NSArray *)getAlbums;
++ (void)deleteAllAlbums;
+
 - (BOOL)hasCard:(NSNumber *)cardIdentifier;
+- (BOOL)isComplete;
 - (PNCard *)addRandomCard;
 - (PNCard *)addCardWithIdentifier:(NSNumber *)identifier;
 - (PNCard *)getCardWithIdentifier:(NSNumber *)identifier;
-
-+ (NSArray *)getAlbums;
-+ (void)deleteAllAlbums;
 
 @end

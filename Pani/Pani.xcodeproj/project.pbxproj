@@ -30,6 +30,8 @@
 		9E5AA8BA18F570C800234982 /* PNCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8B918F570C800234982 /* PNCard.m */; };
 		9E5AA8BD18F570C900234982 /* PNAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA8BC18F570C900234982 /* PNAlbum.m */; };
 		9E5AA90118F5933200234982 /* PNCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9E5AA90018F5933200234982 /* PNCoreDataManager.m */; };
+		9ECC5C7018F7D96B00F11FB4 /* PNGamificationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9ECC5C6F18F7D96B00F11FB4 /* PNGamificationManager.m */; };
+		9ECC5C7318F7E2E500F11FB4 /* albums.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9ECC5C7218F7E2E500F11FB4 /* albums.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +79,9 @@
 		9E5AA8BC18F570C900234982 /* PNAlbum.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNAlbum.m; path = models/PNAlbum.m; sourceTree = "<group>"; };
 		9E5AA8FF18F5933200234982 /* PNCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNCoreDataManager.h; path = utils/PNCoreDataManager.h; sourceTree = "<group>"; };
 		9E5AA90018F5933200234982 /* PNCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNCoreDataManager.m; path = utils/PNCoreDataManager.m; sourceTree = "<group>"; };
+		9ECC5C6E18F7D96B00F11FB4 /* PNGamificationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PNGamificationManager.h; path = utils/PNGamificationManager.h; sourceTree = "<group>"; };
+		9ECC5C6F18F7D96B00F11FB4 /* PNGamificationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PNGamificationManager.m; path = utils/PNGamificationManager.m; sourceTree = "<group>"; };
+		9ECC5C7218F7E2E500F11FB4 /* albums.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = albums.plist; path = resources/albums.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +143,7 @@
 		9E5AA86418F3EB6D00234982 /* Pani */ = {
 			isa = PBXGroup;
 			children = (
+				9ECC5C7118F7E2BB00F11FB4 /* resources */,
 				9E5AA89F18F3F03600234982 /* controllers */,
 				9E5AA8A018F3F04B00234982 /* utils */,
 				9E5AA8A818F44A6F00234982 /* models */,
@@ -200,6 +206,8 @@
 				9E5AA8A318F3F28C00234982 /* PNConstants.m */,
 				9E5AA8FF18F5933200234982 /* PNCoreDataManager.h */,
 				9E5AA90018F5933200234982 /* PNCoreDataManager.m */,
+				9ECC5C6E18F7D96B00F11FB4 /* PNGamificationManager.h */,
+				9ECC5C6F18F7D96B00F11FB4 /* PNGamificationManager.m */,
 			);
 			name = utils;
 			sourceTree = "<group>";
@@ -214,6 +222,14 @@
 				9E5AA8B918F570C800234982 /* PNCard.m */,
 			);
 			name = models;
+			sourceTree = "<group>";
+		};
+		9ECC5C7118F7E2BB00F11FB4 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				9ECC5C7218F7E2E500F11FB4 /* albums.plist */,
+			);
+			name = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -295,6 +311,7 @@
 			files = (
 				9E5AA87518F3EB6D00234982 /* Main_iPad.storyboard in Resources */,
 				9E5AA87D18F3EB6D00234982 /* Images.xcassets in Resources */,
+				9ECC5C7318F7E2E500F11FB4 /* albums.plist in Resources */,
 				9E5AA87218F3EB6D00234982 /* Main_iPhone.storyboard in Resources */,
 				9E5AA86918F3EB6D00234982 /* InfoPlist.strings in Resources */,
 			);
@@ -323,6 +340,7 @@
 				9E5AA86F18F3EB6D00234982 /* PNAppDelegate.m in Sources */,
 				9E5AA89D18F3F03100234982 /* PNAlbumContentViewController.m in Sources */,
 				9E5AA8B718F54B6200234982 /* Pani.xcdatamodeld in Sources */,
+				9ECC5C7018F7D96B00F11FB4 /* PNGamificationManager.m in Sources */,
 				9E5AA86B18F3EB6D00234982 /* main.m in Sources */,
 				9E5AA90118F5933200234982 /* PNCoreDataManager.m in Sources */,
 			);

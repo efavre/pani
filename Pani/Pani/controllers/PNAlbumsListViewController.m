@@ -32,8 +32,12 @@
 {
 	[super viewDidLoad];
 	self.detailViewController = (PNAlbumContentViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
-	[self populateAlbums];
 	[self configureView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+	[self populateAlbums];
 	[self.tableView reloadData];
 }
 

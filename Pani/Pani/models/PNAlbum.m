@@ -43,6 +43,11 @@
 	return NO;
 }
 
+- (BOOL)isComplete
+{
+    return [self.cards count] == [self.cardsCount integerValue];
+}
+
 - (PNCard *)addRandomCard
 {
 	NSNumber *randomIndentifier = [NSNumber numberWithInt:(arc4random() % [self.cardsCount intValue])];

@@ -42,7 +42,7 @@
 - (void)initializeDatabase
 {
 #if (TARGET_IPHONE_SIMULATOR)
-    [PNCoreDataManager initializeDatabase];
+    [[PNCoreDataManager sharedManager] initializeDatabase];
 #else
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *applicationVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];

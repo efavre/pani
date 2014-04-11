@@ -7,7 +7,6 @@
 //
 
 #import "PNCoreDataManager.h"
-#import "PNAlbum.h"
 
 @interface PNCoreDataManager ()
 
@@ -141,29 +140,11 @@ static PNCoreDataManager * coreDataManager;
 #pragma mark - DataBase initilization
 
 
-+ (void)initializeDatabase
+- (void)initializeDatabase
 {
 	[PNAlbum deleteAllAlbums];
     [self initializeAlbumWithIdentifier:@1 title:@"Indonesia" andCardsCount:@24];
-    [self initializeAlbumWithIdentifier:@2 title:@"Peru" andCardsCount:@19];
-    [self initializeAlbumWithIdentifier:@3 title:@"Hong Kong" andCardsCount:@22];
-//    [self initializeAlbumWithIdentifier:@4 title:@"Cambodia" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@5 title:@"Vietnam" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@6 title:@"Mexico" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@7 title:@"Thailand" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@8 title:@"Chili" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@9 title:@"Bolivia" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@10 title:@"Morocco" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@11 title:@"France" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@12 title:@"Italy" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@13 title:@"China" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@14 title:@"Spain" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@15 title:@"Great Britain" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@16 title:@"Danemark" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@17 title:@"Czech Republic" andCardsCount:@24];
-//    [self initializeAlbumWithIdentifier:@18 title:@"Senegal" andCardsCount:@24];
-    
-    [[PNCoreDataManager sharedManager] saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
+    [self saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
         if (saved)
         {
             NSLog(@"Saved");
@@ -175,17 +156,27 @@ static PNCoreDataManager * coreDataManager;
     }];
 }
 
-+ (PNAlbum *)initializeAlbumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount
+- (PNAlbum *)initializeAlbumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount
 {
     NSDictionary *albumAttributes = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", identifier, @"identifier", cardsCount, @"cardsCount", nil];
 	PNAlbum *album = (PNAlbum *)[[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNAlbum" attributesDictionary:albumAttributes];
 	[album addRandomCard];
 	[album addRandomCard];
 	[album addRandomCard];
+    [self saveDataInManagedContextUsingBlock:^(BOOL saved, NSError *error) {
+        if (saved)
+        {
+            NSLog(@"Saved");
+        }
+        else
+        {
+            NSLog(@"ERROR : %@", [error localizedDescription]);
+        }
+    }];
     return album;
 }
 
-+ (void)upgradeDatabaseFromVersion:(NSString *)applicationVersion
+- (void)upgradeDatabaseFromVersion:(NSString *)applicationVersion
 {
     
 }
