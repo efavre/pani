@@ -10,7 +10,7 @@
 
 @class PNAlbumContentViewController;
 
-@interface PNAlbumsListViewController : UITableViewController
+@interface PNAlbumsListViewController : UITableViewController<UIAlertViewDelegate>
 
 @property (strong, nonatomic) PNAlbumContentViewController *detailViewController;
 

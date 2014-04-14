@@ -9,6 +9,7 @@
 #import "PNAlbumsListViewController.h"
 #import "PNAlbumContentViewController.h"
 #import "PNAlbum.h"
+#import "PNGamificationManager.h"
 
 @interface PNAlbumsListViewController ()
 {
@@ -33,17 +34,32 @@
 	[super viewDidLoad];
 	self.detailViewController = (PNAlbumContentViewController *)[[self.splitViewController.viewControllers lastObject] topViewController];
 	[self configureView];
+    [self populateAlbums];
 }
 
-- (void)viewWillAppear:(BOOL)animated
+- (void)viewDidAppear:(BOOL)animated
 {
-	[self populateAlbums];
-	[self.tableView reloadData];
+	[self checkForCompletedAlbums];
+}
+
+-(void)checkForCompletedAlbums
+{
+    PNAlbum *lastAlbum = [_albums lastObject];
+    if ([lastAlbum isComplete])
+    {
+        BOOL newAlbumAdded = [[PNGamificationManager sharedManager] albumCompleted:lastAlbum.identifier];
+        NSString *alertMessage = @"You finished the last album! Some new albums will come with an application update.";
+        if (newAlbumAdded)
+        {
+            alertMessage = @"You finished an album! A new one has just been added.";
+        }
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Congrats!" message:alertMessage delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 - (void)configureView
 {
-//	self.navigationController.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"1-0.png"]];
 	self.navigationController.view.backgroundColor = [UIColor whiteColor];
 	self.title = @"Albums";
 }
@@ -91,6 +107,14 @@
 		PNAlbum *album = [_albums objectAtIndex:[indexPath row]];
 		[[segue destinationViewController] setAlbum:album];
 	}
+}
+
+#pragma mark - UIAlertVIewDelegate
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [self populateAlbums];
+    [self.tableView reloadData];
 }
 
 @end

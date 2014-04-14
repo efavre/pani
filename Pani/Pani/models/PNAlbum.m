@@ -45,7 +45,7 @@
 
 - (BOOL)isComplete
 {
-    return [self.cards count] == [self.cardsCount integerValue];
+    return [self.cards count] >= [self.cardsCount integerValue];
 }
 
 - (PNCard *)addRandomCard

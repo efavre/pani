@@ -132,7 +132,7 @@ static PNCoreDataManager * coreDataManager;
 - (BOOL)uniqueAttributeForClassName:(NSString *)className attributeName:(NSString *)attributeName attributeValue:(id)attributeValue
 {
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K like %@ ", attributeName, attributeValue];
-	NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:attributeName ascending:YES]];
+	NSArray *sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:attributeName ascending:NO]];
 	NSFetchedResultsController *fetchedResultsController = [self fetchEntitiesWithClassName:className sortDescriptors:sortDescriptors sectionNameKeyPath:nil predicate:predicate];
 	return fetchedResultsController.fetchedObjects.count == 0;
 }

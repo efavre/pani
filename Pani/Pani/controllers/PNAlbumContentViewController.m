@@ -9,7 +9,6 @@
 #import "PNAlbumContentViewController.h"
 #import "PNConstants.h"
 #import "PNCardViewController.h"
-#import "PNGamificationManager.h"
 
 @interface PNAlbumContentViewController ()
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
@@ -52,22 +51,6 @@
 	}
 }
 
-- (void)addCardToAlbum:(NSNumber *)beaconMinor
-{
-    [self.album addCardWithIdentifier:beaconMinor];
-    if ([self.album isComplete])
-    {
-        BOOL newAlbumAdded = [[PNGamificationManager sharedManager] albumCompleted:self.album.identifier];
-        NSString *alertMessage = @"You finished the last album! Some new albums will come with an application update.";
-        if (newAlbumAdded)
-        {
-            alertMessage = @"You finished an album! A new one has just been added.";
-        }
-        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Congrats!" message:alertMessage delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-        [alertView show];
-    }
-}
-
 #pragma mark - iBeacon management
 
 - (void)monitorIBeacons
@@ -97,7 +80,7 @@
 {
 	for (CLBeacon *beacon in beacons)
 	{
-        [self addCardToAlbum:beacon.minor];
+        [self.album addCardWithIdentifier:beacon.minor];
 		[self.albumCollectionView reloadData];
 	}
 }
