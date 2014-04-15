@@ -28,6 +28,27 @@ static PNGamificationManager * gamificationManager;
 	return gamificationManager;
 }
 
+- (BOOL)initializeFirstAlbum
+{
+    [PNAlbum deleteAllAlbums];
+
+    NSNumber *albumIdentifier = @1 ;
+    NSURL *albumsFile = [[NSBundle mainBundle] URLForResource:@"albums" withExtension:@"plist"];
+    NSDictionary *albumsDictionary = [NSDictionary dictionaryWithContentsOfURL:albumsFile];
+    if (albumsDictionary)
+    {
+        NSDictionary *firstAlbum = [albumsDictionary objectForKey:[NSString stringWithFormat:@"album%@",albumIdentifier]];
+        NSNumber *firstAlbumCardsCount = [firstAlbum objectForKey:@"cardsCount"];
+        NSString *firstAlbumTitle = [firstAlbum objectForKey:@"title"];
+        if (albumIdentifier && firstAlbumTitle && firstAlbumCardsCount)
+        {
+            [[PNCoreDataManager sharedManager] initializeAlbumWithIdentifier:albumIdentifier title:firstAlbumTitle andCardsCount:firstAlbumCardsCount];
+            return YES;
+        }
+    }
+    return NO;
+}
+
 - (BOOL)albumCompleted:(NSNumber *)albumIdentifier
 {
     NSNumber *nextAlbumIdentifier = @([albumIdentifier intValue] + 1) ;

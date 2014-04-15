@@ -9,6 +9,7 @@
 #import "PNAppDelegate.h"
 #import "PNCoreDataManager.h"
 #import "PNConstants.h"
+#import "PNGamificationManager.h"
 
 @implementation PNAppDelegate
 
@@ -42,13 +43,13 @@
 - (void)initializeDatabase
 {
 #if (TARGET_IPHONE_SIMULATOR)
-    [[PNCoreDataManager sharedManager] initializeDatabase];
+    [[PNGamificationManager sharedManager] initializeFirstAlbum];
 #else
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *applicationVersion = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"];
     if ([defaults objectForKey:DATABASE_INITIALIZED_VERSION_KEY] == nil)
     {
-        [[PNCoreDataManager sharedManager] initializeDatabase];
+        [[PNGamificationManager sharedManager] initializeFirstAlbum];
         [defaults setObject:applicationVersion forKey:DATABASE_INITIALIZED_VERSION_KEY];
         [defaults synchronize];
     }

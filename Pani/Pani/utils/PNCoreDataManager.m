@@ -7,6 +7,7 @@
 //
 
 #import "PNCoreDataManager.h"
+#import "PNConstants.h"
 
 @interface PNCoreDataManager ()
 
@@ -60,10 +61,7 @@ static PNCoreDataManager * coreDataManager;
 	self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:self.managedObjectModel];
 
 	NSError *error = nil;
-	NSPersistentStore *persistentStore = [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType
-																					   configuration:nil
-																								 URL:persistentURL
-																							 options:nil
+	NSPersistentStore *persistentStore = [self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType  configuration:nil URL:persistentURL options:nil
 																							   error:&error];
 	if (persistentStore)
 	{
@@ -85,10 +83,7 @@ static PNCoreDataManager * coreDataManager;
 	savedBlock([self.managedObjectContext save:&saveError], saveError);
 }
 
-- (NSFetchedResultsController *)fetchEntitiesWithClassName:(NSString *)className
-										   sortDescriptors:(NSArray *)sortDescriptors
-										sectionNameKeyPath:(NSString *)sectionNameKeypath
-												 predicate:(NSPredicate *)predicate
+- (NSFetchedResultsController *)fetchEntitiesWithClassName:(NSString *)className sortDescriptors:(NSArray *)sortDescriptors sectionNameKeyPath:(NSString *)sectionNameKeypath predicate:(NSPredicate *)predicate
 
 {
 	NSFetchedResultsController *fetchedResultsController;
@@ -158,7 +153,7 @@ static PNCoreDataManager * coreDataManager;
 
 - (PNAlbum *)initializeAlbumWithIdentifier:(NSNumber *)identifier title:(NSString *)title andCardsCount:(NSNumber *)cardsCount
 {
-    NSDictionary *albumAttributes = [NSDictionary dictionaryWithObjectsAndKeys:title, @"title", identifier, @"identifier", cardsCount, @"cardsCount", nil];
+    NSDictionary *albumAttributes = [NSDictionary dictionaryWithObjectsAndKeys:title, ALBUM_MODEL_TITLE_KEY, identifier, ALBUM_MODEL_IDENTIFIER_KEY, cardsCount, ALBUM_MODEL_CARDS_COUNT_KEY, nil];
 	PNAlbum *album = (PNAlbum *)[[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNAlbum" attributesDictionary:albumAttributes];
 	[album addRandomCard];
 	[album addRandomCard];

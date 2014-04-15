@@ -9,6 +9,7 @@
 #import "PNAlbum.h"
 #import "PNCoreDataManager.h"
 #import "PNCard.h"
+#import "PNConstants.h"
 
 @implementation PNAlbum
 
@@ -59,7 +60,7 @@
 			return card;
 		}
 	}
-	NSDictionary *cardDictionary = [NSDictionary dictionaryWithObjectsAndKeys:randomIndentifier, @"identifier", self, @"album", nil];
+	NSDictionary *cardDictionary = [NSDictionary dictionaryWithObjectsAndKeys:randomIndentifier,CARD_MODEL_IDENTIFIER_KEY , self, CARD_MODEL_ALBUM_KEY, nil];
 	PNCard *card = [[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNCard" attributesDictionary:cardDictionary];
 	return card;
 }
@@ -73,7 +74,7 @@
 			return card;
 		}
 	}
-	NSDictionary *cardDictionary = [NSDictionary dictionaryWithObjectsAndKeys:identifier, @"identifier", self, @"album", nil];
+	NSDictionary *cardDictionary = [NSDictionary dictionaryWithObjectsAndKeys:identifier, CARD_MODEL_IDENTIFIER_KEY, self, CARD_MODEL_ALBUM_KEY, nil];
 	PNCard *card = [[PNCoreDataManager sharedManager] createEntityWithClassName:@"PNCard" attributesDictionary:cardDictionary];
 	return card;
 }
@@ -94,7 +95,7 @@
 
 + (NSArray *)getAlbums
 {
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"identifier" ascending:YES];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:CARD_MODEL_IDENTIFIER_KEY ascending:YES];
 	NSArray *sortDescriptorArray = [NSArray arrayWithObject:sortDescriptor];
     
 	NSFetchedResultsController *albumsFetchedResultsController = [[PNCoreDataManager sharedManager] fetchEntitiesWithClassName:@"PNAlbum" sortDescriptors:sortDescriptorArray sectionNameKeyPath:nil predicate:nil];

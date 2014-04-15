@@ -12,5 +12,10 @@
 
 extern NSString *const UUID;
 extern NSString *const DATABASE_INITIALIZED_VERSION_KEY;
+extern NSString *const ALBUM_MODEL_IDENTIFIER_KEY ;
+extern NSString *const ALBUM_MODEL_CARDS_COUNT_KEY ;
+extern NSString *const ALBUM_MODEL_TITLE_KEY ;
+extern NSString *const CARD_MODEL_IDENTIFIER_KEY;
+extern NSString *const CARD_MODEL_ALBUM_KEY;
 
 @end

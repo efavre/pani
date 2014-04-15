@@ -12,6 +12,7 @@
 
 + (PNGamificationManager *)sharedManager;
 
+- (BOOL)initializeFirstAlbum;
 - (BOOL)albumCompleted:(NSNumber *)albumIdentifier;
 
 @end
