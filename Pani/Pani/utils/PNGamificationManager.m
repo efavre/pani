@@ -59,7 +59,7 @@ static PNGamificationManager * gamificationManager;
         NSDictionary *nextAlbum = [albumsDictionary objectForKey:[NSString stringWithFormat:@"album%@",nextAlbumIdentifier]];
         NSNumber *nextAlbumCardsCount = [nextAlbum objectForKey:@"cardsCount"];
         NSString *nextAlbumTitle = [nextAlbum objectForKey:@"title"];
-        if (nextAlbumIdentifier && nextAlbumTitle && nextAlbumCardsCount)
+        if (nextAlbumIdentifier && nextAlbumTitle && [nextAlbumCardsCount intValue] > 0)
         {
             [[PNCoreDataManager sharedManager] initializeAlbumWithIdentifier:nextAlbumIdentifier title:nextAlbumTitle andCardsCount:nextAlbumCardsCount];
             return YES;
