@@ -146,6 +146,7 @@
 {
 	if ([[segue identifier] isEqualToString:@"conditionalShowImage"])
 	{
+        self.title = self.album.title;
 		NSIndexPath *indexPath = [self.albumCollectionView indexPathForCell:sender];
 		PNCardViewController *nextController = (PNCardViewController *)[segue destinationViewController];
         PNCard *card = [self.album getCardWithIdentifier:@(indexPath.row)];
